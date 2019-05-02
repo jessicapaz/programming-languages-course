@@ -7,7 +7,7 @@ val sub = sub_two_pairs((3, 8), (2, 4))
 (* (5, 12) *)
 
 
-fun sort_pair(pr : int * int) = 
+fun sort_pair(pr : int * int) =
     if (#1 pr) < (#2 pr)
     then pr
     else (#2 pr, #1 pr)
