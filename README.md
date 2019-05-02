@@ -1,5 +1,3 @@
 # Programming Languages Course
 
-[Part A]()
-[Part B]()
-[Part C]()
+Notes and code examples from the course [Programming Languages, Part A](https://www.coursera.org/learn/programming-languages/).
