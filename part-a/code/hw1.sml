@@ -24,7 +24,7 @@ fun number_in_month(dx : (int*int*int) list, m : int) =
     then
       number_in_month(tl dx, m) + 1
     else number_in_month(tl dx, m)
-    
+
 (* 3. Write a function number_in_months that takes a list of dates and a list of months (i.e., an int list)
 and returns the number of dates in the list of dates that are in any of the months in the list of months.
 Assume the list of months has no number repeated. Hint: Use your answer to the previous problem. *)
@@ -46,3 +46,14 @@ fun dates_in_month(ds : (int*int*int) list, m : int) =
      if (#2 (hd ds)) = m
      then hd ds :: dates_in_month(tl ds, m)
      else dates_in_month(tl ds, m)
+
+(* 5. Write a function dates_in_months that takes a list of dates and a list of
+months (i.e., an int list) and returns a list holding the dates from the argument list of dates
+that are in any of the months in the list of months. Assume the list of months has no number
+repeated. Hint: Use your answer to the previous problem and SML’s list-append operator (@). *)
+
+fun dates_in_months(ds : (int*int*int) list, ms : int list) =
+  if null ms
+  then []
+  else
+    dates_in_month(ds, hd ms) @ dates_in_months(ds, tl ms)
