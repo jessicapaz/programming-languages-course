@@ -109,3 +109,12 @@ answer to the previous problem. *)
 
 fun what_month(d : int) =
   number_before_reaching_sum(d, [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]) + 1
+
+(* 10. Write a function month_range that takes two days of the year day1 and day2 and returns an int list
+[m1,m2,...,mn] where m1 is the month of day1, m2 is the month of day1+1, ..., and mn is the month
+of day day2. Note the result will have length day2 - day1 + 1 or length 0 if day1>day2. *)
+
+fun month_range(d1 : int, d2 : int) =
+  if d1 > d2
+  then []
+  else what_month(d1) :: month_range(d1 + 1 ,d2)
