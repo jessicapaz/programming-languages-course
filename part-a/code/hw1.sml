@@ -118,3 +118,17 @@ fun month_range(d1 : int, d2 : int) =
   if d1 > d2
   then []
   else what_month(d1) :: month_range(d1 + 1 ,d2)
+
+(* 11. Write a function oldest that takes a list of dates and evaluates to an (int*int*int) option. It
+evaluates to NONE if the list has no dates and SOME d if the date d is the oldest date in the list *)
+
+fun oldest(ds : (int*int*int) list) =
+  if null ds
+  then NONE
+  else
+    let val ans = oldest(tl ds)
+    in
+      if isSome ans andalso is_older(valOf ans, hd ds)
+      then ans
+      else SOME (hd ds)
+    end
