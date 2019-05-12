@@ -98,10 +98,14 @@ n + 1 elements of the list add to sum or more. Assume the entire list sums to mo
 value; it is okay for an exception to occur if this is not the case. *)
 
 fun number_before_reaching_sum(sum : int, xs : int list) =
-  if null xs
+  if sum <= hd xs
   then 0
   else
-    if sum - hd xs <= hd (tl xs)
-    then hd xs
-    else
-      number_before_reaching_sum(sum - hd xs, tl xs)
+    number_before_reaching_sum(sum - hd xs, tl xs) + 1
+
+(* 9. Write a function what_month that takes a day of year (i.e., an int between 1 and 365) and returns
+what month that day is in (1 for January, 2 for February, etc.). Use a list holding 12 integers and your
+answer to the previous problem. *)
+
+fun what_month(d : int) =
+  number_before_reaching_sum(d, [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]) + 1
