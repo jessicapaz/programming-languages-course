@@ -22,3 +22,7 @@
     * `hd` returns the first element of a list, raising an exception if the list is empty.
     * `tl` returns the tail of a list, returns `[]` if the list has just one element and raising an exception if the list is empty.
 * Functions that make and use lists are almost always recursive because a list has an unknown length.
+
+## Let Expressions
+* let-expression lets us have local bindings of any sort, including function bindings.
+* We call the *scope* of a binding "where it can be used".
